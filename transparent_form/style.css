@@ -1,0 +1,114 @@
+body {
+    background: linear-gradient(-40deg, orange, rgb(0, 0, 255));
+    height: 100vh;
+    padding: 0px;
+    margin:0px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    box-shadow: 0px 6px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-bar {
+    display: flex;
+    padding: 20px;
+}
+
+.nav-bar a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+.nav-bar a:hover {
+    border-bottom: 5px orange solid;
+    text-shadow: 1px 2px gray;
+}
+
+.logo {
+    margin: 10px;
+    padding: 0px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    box-shadow: 4px 3px 50px 5px rgba(0, 0, 0, 0.3)
+}
+#name{
+    text-transform: capitalize;
+}
+.formdiv{
+    width:310px;
+    height:305px;
+    letter-spacing: 0.5px;
+    background:rgba(0,0,0,0.3);
+    position:absolute;
+    top: 30%;
+    left: 74%;
+    box-shadow: 10px 10px 10px 9px rgba(0,0,0,0.3);
+    
+    
+}
+.form {
+    display: grid;
+    grid-gap: 7px;
+    padding: 10px;
+    font-size: 20px;
+}
+button:nth-of-type(n){
+    margin: 5px;
+    padding:  4px;
+    font-size: 17px;
+    background: transparent;
+    border: 1px solid white;
+}
+
+input{
+    height: 20px;
+    font-size: 15px;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid yellow;
+}
+input:focus{
+    outline:none;
+}
+button:hover{
+    background: orange;
+}
+.connect{
+    display: grid;
+    /*border: 10px solid green;*/
+    width: 310px;
+    position: absolute;
+    top: 80%;
+    left: 74%;
+    font-size:20px;
+    
+}
+.connect img{
+   height: 50px;
+    width: 50px;
+   border-radius:100%;
+    box-shadow:07px 4px 60px 1px rgba(0,0,0,0.7);
+}
+.clinks{
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-gap: 50px;
+}
+.connect img:hover{
+    transform:scale(1.2);
+    
+}
+@media (max-width:700px){
+    body{
+        background-size: cover;
+    }
+}

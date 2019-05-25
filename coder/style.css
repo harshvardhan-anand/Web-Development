@@ -1,0 +1,248 @@
+/body {
+    background-color: black;
+}
+
+.neck {
+    height: 12px;
+    width: 7px;
+    background-color: black;
+    position: relative;
+    top: -35px;
+    left: 13.5px;
+}
+
+
+
+.head {
+    width: 34px;
+    height: 40px;
+    background-color: black;
+    border-radius: 100%;
+    transform: translate(0px,0px) skewX(-20deg);
+    position: relative;
+    bottom: 380px;
+    left: 105px;
+}
+
+.nose {
+    width: 2px;
+    height: 10px;
+    background-color: sandybrown;
+    position: relative;
+    top: -45px;
+    left: 16px;
+}
+
+.nose::before {
+    position: absolute;
+    left: 7px;
+    bottom: 7px;
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.nose::after {
+    position: absolute;
+    left: -11px;
+    bottom: 7px;
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.lips {
+    width: 10px;
+    height: 3px;
+    background-color: yellow;
+    border-radius: 20%;
+    position: relative;
+    top: -40px;
+    left: 12.4px;
+    z-index: 1;
+}
+
+.table {
+    height: 80px;
+    width: 200px;
+    background-color: blueviolet;
+    box-shadow: 2px 2px 0px 1px blueviolet;
+    transform: translate(-50%, -50%) skewX(20deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index:1;
+}
+
+.leg1 {
+    height: 100px;
+    width: 10px;
+    background-color: blueviolet;
+    transform: rotate(24deg) translateX(-22px) translateY(8px);
+    border-radius: 20%;
+}
+
+.leg2 {
+    height: 85px;
+    width: 10px;
+    background-color: blueviolet;
+    transform: rotate(24deg) translateX(-22px) translateY(8px);
+    border-radius: 20%;
+    position: relative;
+    bottom: 27px;
+    left: 5px
+}
+
+.leg3 {
+    height: 85px;
+    width: 10px;
+    background-color: blueviolet;
+    transform: rotate(24deg) translateX(-22px) translateY(8px);
+    border-radius: 20%;
+    position: relative;
+    bottom: 111px;
+    left: 202px;
+}
+.trunk {
+    width: 50px;
+    height: 60px;
+    background-color: grey;
+    position: relative;
+    top: -89px;
+    left:-6px;
+    border-radius: 10px 10px 0px 0px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 9px;
+}
+
+.hands {
+    width: 10px;
+    height: 48px;
+    background-color: grey;
+    position: relative;
+    top: -70px;
+    left: -15px;
+    transform: rotate(-30deg);
+    border-radius: 10px;
+}
+.punch1{
+    position: relative;
+    top: -3px;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 100%;
+}
+.punch2{
+    position: relative;
+    top: -11px;
+    left: -5px;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 100%;
+}
+.punch3{
+    position: relative;
+    top: -20px;
+    left: 4px;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 100%;
+}
+
+.hair1 {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: relative;
+    border-radius: 100%;
+    bottom: 4px;
+    right: 4px;
+}
+
+.hair2 {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: relative;
+    border-radius: 100%;
+    bottom: 28px;
+    left: 5px;
+}
+
+.hair3 {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position:relative;
+    border-radius: 100%;
+    bottom: 45px;
+    left: 16px;
+}
+.coder{
+    position: relative;
+    top: 6px;
+}
+.flowerstem{
+    position:relative;
+    height:30px;
+    width:5px;
+    background-color: black;
+    transform:  skewX(0deg);
+    bottom: 30px;
+    left: 7.5px;
+}
+.vase{
+    height: 30px;
+    width: 20px;
+    background-color: black;
+    border-radius: 2px 2px;
+    transform: skewX(0deg);
+    position: absolute;
+    top: 50%;
+    left: 44%;
+    z-index: 1;
+}
+
+.flower1{
+    position: relative;
+    bottom:  70px;
+    left: 2.5px;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: red;
+    transform: skewX(0deg);}
+.flower2{
+    position: relative;
+    top: 3px;
+    left: 5px;
+    height: 13px;
+    width: 13px;
+    border-radius: 100%;
+    background-color: red;
+    transform: skewX(0deg);}
+.flower3{
+    position: relative;
+    right: 5px;
+    bottom: 10px;
+    height: 13px;
+    width: 13px;
+    border-radius: 100%;
+    background-color: red;
+    transform: skewX(0deg);}
+.flower4{
+    position: relative;
+    bottom: 30px;
+    height: 13px;
+    width: 13px;
+    border-radius: 100%;
+    background-color: red;
+    transform: skewX(0deg);}
