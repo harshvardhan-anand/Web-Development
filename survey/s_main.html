@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <title>SURVEY</title>
+</head>
+
+<body>
+    <h1 id="title"><u>SURVEY</u></h1>
+
+    <p id="description">Are you the one who likes chess!!!</p>
+    <p class="discri2">Then you are on right place. Come on tell how much do you like it.</p>
+    <br>
+
+    <form id="survey-form">
+
+        <div>
+
+            <br><label for="name" id="name-label"> &nbsp;&nbsp;Your Name</label><br>&nbsp;&nbsp;<input type="text" id="name" placeholder="Name" required>
+            <br>
+            <br>
+
+            <label for="email" id="email-label">&nbsp;&nbsp;Email</label><br>&nbsp;&nbsp;<input type="email" id="email" placeholder="Email" required>
+
+            <br><br>
+
+            <label for="number" id="number-label">&nbsp;&nbsp;Phone Number</label><br>&nbsp;&nbsp;<input type="number" id="number" placeholder="Phone Number" min="6000000000" max="10000000000" required><br><br>
+
+            <label class="gender">&nbsp;&nbsp;Gender: &nbsp;
+                <input type="radio" name="rad" value="male" required>Male &nbsp;
+                <input type="radio" name="rad" value="female" required>Female<br></label> <br>
+
+            <label for="dropdown" class="age">&nbsp;&nbsp;Age:</label> &nbsp;
+            <select id="dropdown" class="ageopt">
+                <option value="child">Child(5-12 years)</option>
+                <option value="adoles">Young (13-20 years)</option>
+                <option value="adult">Adult(21-35 years)</option>
+                <option value="old">Aged(above 35 years)</option>
+            </select> <br> <br>
+
+
+
+            <label class="color">&nbsp;&nbsp;Which side do you prefer in the game: <br> &nbsp;
+                <input type="radio" name="white" value="radio-sv">White <br> &nbsp; 
+                <input type="radio" name="black" value="radio-sv"> Black <br></label> <br>
+
+            <label class="partner">&nbsp;&nbsp;Who is your partner in the game: <br> &nbsp;
+                <input type="checkbox" name="chkbx" value="father">Father <br> &nbsp;
+                <input type="checkbox" name="chkbx" value="mother">Mother <br> &nbsp;
+                <input type="checkbox" name="chkbx" value="friends">Friends <br> &nbsp;
+                <input type="checkbox" value="others">Any Other </label> <br> <br>
+
+            <label for="comment" class="comment"> &nbsp;&nbsp;
+                Comment:</label> <br>&nbsp;&nbsp;
+            <textarea rows="6" cols="50" id="comment"></textarea>
+
+            <br> <br>
+
+            <button id="submit" value="submit">Submit</button> <br>
+            
+            <p class="me">Harshvardhan Anand</p>
+            
+        </div>
+
+    </form>
+
+</body>
+
+</html>

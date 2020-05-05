@@ -1,0 +1,189 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-40deg, orange, rgb(0, 0, 255));
+    background-size: contain;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    box-shadow: 0px 6px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#nav-bar {
+    display: flex;
+    padding: 20px;
+}
+
+#nav-bar a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+#nav-bar a:hover {
+    border-bottom: 5px orange solid;
+    text-shadow: 1px 2px gray;
+}
+
+#header-img {
+    margin: 10px;
+    padding: 0px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    box-shadow: 4px 3px 50px 5px rgba(0, 0, 0, 0.3)
+}
+
+#name {
+    text-transform: capitalize;
+}
+
+.formdiv {
+    width: 310px;
+    height: 305px;
+    letter-spacing: 0.5px;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 30%;
+    left: 74%;
+    box-shadow: 10px 10px 10px 9px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.form {
+    display: grid;
+    grid-gap: 7px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#submit:nth-of-type(n) {
+    margin: 5px;
+    padding: px;
+    font-size: 17px;
+    background: transparent;
+    border: 0px solid white;
+}
+
+input {
+    height: 20px;
+    font-size: 15px;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid yellow;
+}
+
+input:focus {
+    outline: none;
+}
+
+#submit:hover {
+    background: orange;
+}
+
+.connect {
+    display: grid;
+    border: 10px soli green;
+    width: 310px;
+    position: absolute;
+    top: 80%;
+    left: 74%;
+    font-size: 20px;
+
+}
+
+.connect img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    box-shadow: 07px 4px 60px 1px rgba(0, 0, 0, 0.7);
+}
+
+.clinks {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-gap: 5px;
+}
+
+.connect img:hover {
+    transform: scale(1.2);
+}
+
+#video {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+}
+
+#features {
+    background: gray;
+    width: 250px;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    display: flex;
+    width: 50vw;
+    text-align: center;
+}
+
+@media (max-width:700px) {
+   body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(-40deg, orange, rgb(0, 0, 255));
+    background-size: contain;
+
+    padding: 0px;
+    margin: 0px;
+}
+    
+    #features {
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
+
+    #video {
+        width: 0px;
+        height: 0px;
+    }
+
+    
+
+    .formdiv {
+        width: 310px;
+        height: 305px;
+        letter-spacing: 0.5px;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 10px 10px 10px 9px rgba(0, 0, 0, 0.3);
+    }
+
+    .connect {
+        display: grid;
+        border: 10px green;
+        width: 310px;
+        position: absolute;
+        top: 80%;
+        left: 74%;
+        font-size: 20px;
+        transform: translate(-80%,-0%)
+    }
