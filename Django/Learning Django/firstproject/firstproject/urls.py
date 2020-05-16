@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from firstapp import views
+from django.conf.urls import include
 
 urlpatterns = [
-    path('', views.homepage),
+    path('', views.homepage),# this is a home page.
+    path("app/", include('firstapp.urls')), # this is a new page lead to app's       landing page.
     path('admin/', admin.site.urls),
 ]
