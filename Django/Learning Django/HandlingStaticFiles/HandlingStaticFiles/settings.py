@@ -125,6 +125,6 @@ STATIC_URL = '/staticfiles/'  # this is used to give absolute file path and "sta
 #run this link and you will understand
 
 STATICFILES_DIRS = [
-    STATIC_DIR,
+    STATIC_DIR
 ]
 
