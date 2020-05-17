@@ -6,7 +6,7 @@ def homepage(response):
         "inserted_to":"I am inserted to homepage.html",
         "inserted_from":"I am inserted from app.views"
     }
-    return render(response, "homepage.html", context=inserted_data)
+    return render(response, "app/homepage.html", context=inserted_data)
 
 def about(response):
-    return render(response, "about.html")
+    return render(response, "app/about.html")
