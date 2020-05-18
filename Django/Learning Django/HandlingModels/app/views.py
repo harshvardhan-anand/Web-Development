@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.models import PersonDetails , Article
+from app.models import PersonDetails, Article
 # Create your views here.
 # In VS COde you will see a error "PersonDetail have has no object" is due to the pylint not due to django
 def homepage(response):
