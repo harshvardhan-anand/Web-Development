@@ -6,9 +6,14 @@ class PersonDetails(models.Model):
     name_of_person = models.TextField()
     phone_no = models.IntegerField()
 
+    def __str__(self):
+        return self.name_of_person
+
 class Article(models.Model):
     foreign_key = models.ForeignKey(PersonDetails, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     content = models.TextField()
 
+    def __str__(self):
+        return self.title
 
