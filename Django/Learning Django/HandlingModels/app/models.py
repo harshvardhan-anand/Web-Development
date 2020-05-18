@@ -7,6 +7,8 @@ class PersonDetails(models.Model):
     phone_no = models.IntegerField()
 
 class Article(models.Model):
+    foreign_key = models.ForeignKey(PersonDetails, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     content = models.TextField()
+
 
