@@ -18,6 +18,7 @@ from django.urls import path
 from form import views
 
 urlpatterns = [
+    path('users/', views.newusers),
     path('form/', views.form_data),
     path('', views.homepage),
     path('admin/', admin.site.urls),

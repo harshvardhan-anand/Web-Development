@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from . import form
+from django import forms
+from form.form import NewUser
+
 # Create your views here.
 def homepage(response):
     return render(response, 'homepage/homepage.html')
 
+# Validation of form
 def form_data(response):
     form_elements = form.FormElements()
     print()
@@ -20,6 +24,18 @@ def form_data(response):
             print(postdata.cleaned_data['name'])
             print(postdata.cleaned_data['botcatcher'])
         print()
-
-
     return render(response, 'form/form.htm', {'form_elements':form_elements})
+
+# For saving the data into database from the form
+def newusers(response):
+    form_elements = NewUser()
+    context = {'form':form_elements}
+    if response.method=='POST':
+        form = NewUser(response.POST)
+        # Saving post data to database
+        if form.is_valid():
+            form.save(commit=True)
+            return homepage(response)  # after filling the form return to homepage
+        else:
+            raise forms.ValidationError("This is a validation Error")
+    return render(response, "users/users.html", context=context)

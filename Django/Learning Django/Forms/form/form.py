@@ -1,5 +1,11 @@
 from django import forms
 from django.core import validators
+from form.models import Details
+
+class NewUser(forms.ModelForm):
+    class Meta():
+        model = Details  # in which table we have to save data
+        fields = "__all__"  # which all fields we have save
 
 # METHOD 3 custom validator from validators
 def check_for_bot(botcatcher_data):
@@ -11,7 +17,6 @@ class FormElements(forms.Form):
     email = forms.EmailField()
     verify_email = forms.EmailField()
     feedback = forms.CharField(widget=forms.Textarea)
-
     # METHOD 3 continued
     botcatcher = forms.CharField(widget=forms.HiddenInput, required=False,
                                     validators=[check_for_bot])    
@@ -48,3 +53,4 @@ class FormElements(forms.Form):
     #     # This return value will change the data stored in botcatcher.
     #     # for eg. return "Jumba" then the data stored in botcatcher will be "Jumba" not the data given by the bot.
 
+    # for saving form data to database
