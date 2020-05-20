@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title] %} 
+        <!-- title -->
+    {% endblock %}
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'homepage' %}">HomePage</a>
+            </li>
+            <li><a href="{% url 'form:register' %}">Register</a>
+            </li>
+        </ul>
+        
+    </nav>
+
+    
+    {% block body_block %}
+        <!-- body -->
+    {% endblock %}
+
+</body>
+</html>
