@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Home Page</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+            {% comment %} here we dont need to refer anywhere because it is in project's url.py {% endcomment %}
+            <li class="nav-item"><a class='nav-link' href={% url "homepage" %}>Home</a>
+            </li>
+            {% comment %} here we have to refer to link "about" because its in app's appurl.py {% endcomment %} <!--This is django way of commenting-->
+            <li class="nav-item"><a class='nav-link' href="{% url "app:about" %}">About</a>
+            </li>
+            <li class="nav-item"><a class='nav-link' href={% url "app:pricing" %}>Pricing</a>
+            </li>
+        </ul>
+    </nav>
+    {% block body_block %}
+        <!-- here we can  put any thing we want and the remaining thing is template -->
+    {% endblock %}
+    
+</body>
+</html>
