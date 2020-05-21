@@ -3,6 +3,7 @@ from django.core import validators
 from form.models import Details
 
 class NewUser(forms.ModelForm):
+    # .... Here we can define things for validation....
     class Meta():
         model = Details  # in which table we have to save data
         fields = "__all__"  # which all fields we have save
