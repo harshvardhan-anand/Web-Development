@@ -1,14 +1,24 @@
 from django.shortcuts import render
-from . import form
+import speech_recognition as sr
 
+recogniser = sr.Recognizer()
+def speech_recognition():
+    with sr.Microphone() as source:
+        # print('Google is listening')
+        audio = recogniser.listen(source)
+        # print('Recognizing')
+        try:
+            # There is requirement of internet connection
+            text = recogniser.recognize_google(audio) # converting audio to text
+            return (text)
+        except Exception as e:
+            print(e)
+            return ("Google: There is Internet connectivity issue")
 
-# Create your views here.
 def homepage(request):
-    audiofile = form.FileUpload()
     if request.method == 'POST':
-        filled_form = form.FileUpload(request.POST)
-        uploaded_file = request.FILES
-        print(uploaded_file)
-    context = {'file_upload':audiofile}
+        text = speech_recognition()
+        context = {'text':"You have said, {}.".format(text)}
+    else:
+        context = {'text':'Google: Please Say Something'}
     return render(request, 'homepage/homepage.html', context=context)
-

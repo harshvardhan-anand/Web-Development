@@ -6,13 +6,18 @@
     <title>Speech Recognition</title>
 </head>
 <body>
-    <h1>This is speech Recognition homepage</h1>
-    <form method="POST">
+    <h1>Speech Recognition</h1>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Click To Speak">
+        </form>
+    </div>
+    <div>
+        <br>
         {% block body_block %}
 
         {% endblock body_block %}
-        {% csrf_token %}
-        <input type="submit" value="Submit">
-    </form>
+    </div>
 </body>
 </html>
