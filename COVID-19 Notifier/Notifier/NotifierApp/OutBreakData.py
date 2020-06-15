@@ -14,7 +14,8 @@ class Update():
                 website provides API so you should use the API for building your applications.
     '''
     def __init__(self):
-        self._CHROMEDRIVER = r'E:\PROJ.RC\__operational files__\github repo\Python Projects\Artificial Intelligence\GUI_Automation\Whatsapp Automation\chromedriver.exe'
+        chromeexe = os.path.dirname(__file__)
+        self._CHROMEDRIVER = os.path.join(chromeexe, 'chromedriver.exe')
         self._html, driver = self._loadjs()
         # CLosing driver takes time so just creating a new thread.
         t1 = threading.Thread(target = driver.close())
