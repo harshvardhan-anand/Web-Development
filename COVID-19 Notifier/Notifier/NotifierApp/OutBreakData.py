@@ -51,5 +51,3 @@ class Update():
         total = obj.find('', {"class": 'level-item is-confirmed'}).h1.text
         return (total, new, active)
 
-u = Update()
-print(u.data())
