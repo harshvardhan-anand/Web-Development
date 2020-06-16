@@ -1,10 +1,10 @@
-from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 from selenium import webdriver
 import os
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import threading
 
 class Update():
@@ -12,8 +12,15 @@ class Update():
     This class will get the data from covid19india.org. 
     Disclaimer: This scraper project is made only for educational purpose. This 
                 website provides API so you should use the API for building your applications.
+    -----------------------------------------------------------------------------
+    **On pythonanywhere.com we can not use chrome driver**
+    **We need to use only firefox without any driver**
+    **Link: https://help.pythonanywhere.com/pages/selenium/**
+    ------------------------------------------------------------------------------
     '''
     def __init__(self):
+        self._chrome_options = Options()
+        self._chrome_options.add_argument("--headless")
         chromeexe = os.path.dirname(__file__)
         self._CHROMEDRIVER = os.path.join(chromeexe, 'chromedriver.exe')
         self._html, driver = self._loadjs()
@@ -23,7 +30,8 @@ class Update():
         
     def _loadjs(self):
         try:
-            driver = webdriver.Chrome(executable_path=self._CHROMEDRIVER)
+            driver = webdriver.Chrome(executable_path=self._CHROMEDRIVER,
+                                    chrome_options=self._chrome_options)
             driver.get('https://www.covid19india.org/')
             # locating the total case div
             element = ec.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div[3]/div[1]/div[2]/div[1]'))
@@ -42,3 +50,6 @@ class Update():
         new = obj.find('', {"class": 'level-item is-confirmed'}).h4.text[1:]
         total = obj.find('', {"class": 'level-item is-confirmed'}).h1.text
         return (total, new, active)
+
+u = Update()
+print(u.data())
