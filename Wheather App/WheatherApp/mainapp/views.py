@@ -2,11 +2,15 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from mainapp import forms
 from mainapp.resources import fetch
+import json
 
 # Create your views here.
 def homepage(request):
     form = forms.UserParam() # our form
     return render(request,'homepage/homepage.html',context={'form':form})
+
+def ajaxRequest(request):
+    return HttpResponse('Hi')
 
 def wheather(request):
     alert = {
@@ -45,9 +49,10 @@ def wheather(request):
             return redirect('/', context={'alert':alert})
         else:
             # otherwise wheather webpage will be returned
-            return HttpResponse(wdata)
+            return render(request,'homepage/homepage.html')
     else:
-        # if request is a get request then redirect them to home page
+        # if request is a get request then redirect them to home page.
+        # this will occur if person want directly goes to homepage/wheather/
         alert['status'] = 1
         alert['msg'] = 'Hey man!! What are you tring to do? Follow the procedure.'
         return redirect('/', context={'alert':alert})

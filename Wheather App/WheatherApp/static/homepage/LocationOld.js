@@ -44,26 +44,16 @@ function send_data(loc_data){
     let user_pref = user_preferences()
     // sending AJAX request to homepage.
     // we need to set csrf token to the header of request before sending the it.
-    $.ajax({
-        url:'wheather/',
-        type:'POST',
-        beforeSend:(request)=>{
-            request.setRequestHeader("X-CSRFToken", csrftoken)
-        }, // any header to set (https://bit.ly/33dYPW7) here csrftoken.
-        data:{
+    xhr = new XMLHttpRequest()
+    xhr.open('POST','/wheather/',true)
+    xhr.setRequestHeader("X-CSRFToken", csrftoken)
+    xhr.send(
+        {
             location:loc_data,
             pref:user_pref
-        }, // data to be sent
-        success:function(response){
-            alert(response)
-            window.location.href = '/ajaxRequest/'
-            $(document).html(response)
-            console.log('data sent')
-        }, // if data is successfully sent then what to do
-        error:function(){
-            console.log('data sending failed')
-        }, // if data is not sent sent then what to do
-    })
+        }
+    )
+    console.log('data sent')
 }
 
 function get_csrftoken(cookie){
