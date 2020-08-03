@@ -55,13 +55,11 @@ function send_data(loc_data){
             pref:user_pref
         }, // data to be sent
         success:function(response){
-            alert(response)
-            window.location.href = '/ajaxRequest/'
-            $(document).html(response)
-            console.log('data sent')
+            console.log('Location set')
+            window.location.href = '/wheather/'
         }, // if data is successfully sent then what to do
         error:function(){
-            console.log('data sending failed')
+            console.log('Location access denied')
         }, // if data is not sent sent then what to do
     })
 }

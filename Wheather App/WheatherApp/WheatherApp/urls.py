@@ -21,6 +21,5 @@ from mainapp import views
 urlpatterns = [
     path('',views.homepage,name='homepage'),
     path('wheather/',include('mainapp.appurls')),
-    path('ajaxRequest/',views.ajaxRequest,name='ajax'),
     path('admin/', admin.site.urls),
 ]
