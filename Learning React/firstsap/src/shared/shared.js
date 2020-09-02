@@ -1,0 +1,1 @@
+export let a = "This is a shared Text";

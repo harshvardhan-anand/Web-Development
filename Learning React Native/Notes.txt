@@ -1,0 +1,21 @@
+1. create a react native app with npx create-react-native-app projectName
+
+2. Project name cannot have space in between them.
+
+3. cd to the project and yarn start. only once, it is used to set compiler for your project.
+
+4. yarn web, as we are using browser to view the changes and for this You may need to install expo CLI. For yarn android we need android SDK. 
+
+5. Text is used for text
+
+6. React native uses inline react css.
+
+7. Styles will be applied to view.
+
+8. FlatList is used to create list of items
+
+9. Functional component only takes props as parameter and it is used when you dont have to use states.
+
+10. Functional components will return a view.
+
+11. require function needs exact image path name we cannot programtically generate the image path. So to overcome this we use URI - Uniform resource indicator

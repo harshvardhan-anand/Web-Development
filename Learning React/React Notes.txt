@@ -1,0 +1,35 @@
+1. React uses mvc model - https://youtu.be/mLMfx8BEt8g?t=116
+
+2. Flow of how react works:
+	User -> index.js -> app.js ->index.js -> user
+
+3. Reactstrap is bootstrap for react.
+
+4. App.js mein sirf html(JSX) ho sakta hai. Lekin agar koi styling karna hai to wo index.js mein hoga. Matlab agar bootstrap ya  koi css file lagana hai to use tum index.js mein import karoge na ki App.jss mein. Lekin reactstrap ko app.js mein kyun ki tum uske "Components" ko use karoge
+
+5. Components are combination of eract elements that will form a part of a page.
+
+6. JSX is always written in return statement.
+
+7. All Components are placed in App.js
+
+8. Structure of Components(i.e HTML) are placed in different Components.
+
+9. Anything written inside {} in JSX is a javascript variable.
+
+10.Multiple lines of JSX is to be written in a parent like div so that it will 		 
+	return only one thing which is div.
+
+11.States are written in constructor.
+
+12.Render is a method in Components.
+
+13.If we  add list of elements in React then we need to provide a key attribute in JSX so that react can track which all elements are changed in the DOM.
+
+14. We lift the state up so that we can share data between components.
+
+15. To set the state you need to use "this.state" nothing else. As react checks for properties inside 'this.state' only.
+
+16. Props are sent from parent to child using property and they are read only. Whereas states are for storing data of the component.
+
+17. using react fragment we can return single JSX elements without use of div.
