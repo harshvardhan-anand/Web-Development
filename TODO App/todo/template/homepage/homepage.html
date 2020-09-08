@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,12 @@
 <body>
     <h1>This is Homepage</h1>
     <form action="/template/homepage/homepage.html" method="post">
+        {% csrf_token %}
         <label for="task">What you want to do: </label>
         <input type="text" name="task" id="taskinput">
         <input type="button" value="Add Task" onclick="setTask()">
     </form>
     <div id="alltask"></div>
 </body>
-<script src="functionalities.js"></script>
+<script src="{% static 'homepage/functionalities.js'%}"></script>
 </html>
