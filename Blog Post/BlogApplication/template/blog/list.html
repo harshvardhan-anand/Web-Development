@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<h1>List View</h1>
+{% extends 'base.html' %}
+
+{% block title %}List View{% endblock %}
+
+{% block content %}
+    <form action="{% url 'blog:search' %}" method="post">
+        {{search}}
+        {% csrf_token %}
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for post in posts %}
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    {% endfor %}
+
+    {% include 'blog/pagination.html' with page=posts %}
+{% endblock %}

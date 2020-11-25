@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<h1>Detail View</h1>
+
+{%extends 'base.html'%}
+
+{%block title%} 
+    Detail view 
+{%endblock%}
+
+{% block content %} 
+    {{posts.body}}
+    <a href="{% url 'blog:post_share' posts.id %}">Share By Email</a>
+    <br><br>
+    <form method="POST">
+        {{form.as_p}}
+        {%csrf_token%}
+        <input type="Submit">
+    </form>
+    <br><br>
+    {% if all_comments %}
+        {% for comment in all_comments %}
+            {{comment}} on {{comment.created|date}} 
+            <br>
+        {% endfor %}
+    {% endif %}
+    <br>
+    
+{%endblock%}

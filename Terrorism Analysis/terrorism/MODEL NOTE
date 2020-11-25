@@ -1,0 +1,25 @@
+Columns required to Predict organisation after attack
+
+['nperps', 'nkill', 'nkillter']
+
+Columns required for simulation
+
+['imonth', 'doubtterr', 'longitude', 'latitude', 'attacktype1', 'weaptype1', 'weapsubtype1', 'targtype1', 
+'targsubtype1', 'nperps', 'nperpcap', 'nkill', 'nkillter', 'nwound', 'nwoundte', 'property', 'ishostkid']
+
+Columns required to predict organisation before attack
+
+
+['imonth', 'crit1', 'crit2', 'crit3', 'doubtterr', 'attacktype1', 'weaptype1', 'targtype1', 'gname']
+
+
+
+['imonth', 'doubtterr', 'longitude', 'latitude', 'attacktype1', 'weaptype1', 'weapsubtype1', 'targtype1', 
+'targsubtype1', 'nperps', 'nperpcap', 'nkill', 'nkillter', 'nwound', 'nwoundte', 'property', 'ishostkid',
+'imonth', 'crit1', 'crit2', 'crit3', 'doubtterr', 'attacktype1', 'weaptype1', 'targtype1', 'gname', 'nperps', 
+'nkill', 'nkillter']
+
+
+<!-- ['crit1', 'imonth', 'weapsubtype1', 'nkill', 'targsubtype1', 'attacktype1', 'targtype1', 'crit3', 'nwoundte', 
+'nwound', 'ishostkid', 'gname', 'weaptype1', 'longitude', 'latitude', 'crit2', 'nperps', 'property', 'doubtterr',
+'nkillter', 'nperpcap'] -->
