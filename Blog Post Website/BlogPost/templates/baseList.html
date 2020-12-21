@@ -6,18 +6,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>{% block title %}{% endblock %}</title>
 </head>
-
 <body class='container'>
     {% block navBar %}{% endblock %}
     <br>
-    <div class='container'>
-    {% block content %}{% endblock %}
+    <div class='row'>
+        <div class='col-xl-9'>
+            <div class='container'>
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <div class='col-xl-3'>
+            <div class='float-end'>
+                {% block sideBar %}{% endblock %}
+                <br>
+                <button type="button" class="btn btn-success">{% block feed %}{% endblock %}</button>
+            </div>  
+        </div>      
     </div>
 
     {% block pagination %}{% endblock %}
-    {% block sideBar %}{% endblock %}
-    {% block searchTemplate %}{% endblock %}
-    {% block feed %}{% endblock %}
 
+    {% block searchTemplate %}{% endblock %}    
 </body>
 </html>

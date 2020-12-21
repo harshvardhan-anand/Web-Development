@@ -8,9 +8,9 @@
     <nav class="navbar navbar-light bg-light justify-content-between">
         <div class='container'>
             <h1>Super Blog</h1>
-            <form action='{% url 'blog:search' %}' method="get">
-                <input type="text" name="query">
-                <input type="submit" value="Search">
+            <form action='{% url 'blog:search' %}' method="get" class='d-flex'>
+                <input type="text" name="query" class='form-control me-2'>
+                <input type="submit" value="Search" class='btn btn-outline-success'>
             </form>
         </div>
     </nav>
@@ -46,6 +46,6 @@
 
 {% block feed %}
     <div>
-        <a href="{% url 'blog:feed' %}">Subscribe to my feed</a>
+        <a href="{% url 'blog:feed' %}" class='link-light'>Subscribe to my feed</a>
     </div>
 {% endblock feed %}
