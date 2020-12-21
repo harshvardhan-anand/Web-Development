@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body class='container'>
+
+    <div class='container'>
+        {% block content %}{% endblock %}
+    </div>
+
+    {% comment %} START SHARING {% endcomment %}
+        {% if shared is None or shared is True %}
+            {% block shareButton %}{% endblock %}
+        {% endif %}
+        {% if shared %}
+            {% block thankyou %}{% endblock %}
+        {% endif %}
+        {% if shared is False %}
+            {% block shareForm %}{% endblock %}
+        {% endif %}
+    {% comment %} END SHARING {% endcomment %}
+
+    {% comment %} START COMMENTING {% endcomment %}
+    {% if showCommentForm %}
+        {% block commentForm %}{% endblock %}
+    {% elif showCommentForm is False or shared is True %}
+        {% block commentButton %}{% endblock %}
+    {% endif %}
+    {% comment %} END COMMENTING {% endcomment %}
+
+    {% block similarPosts %}{% endblock %}
+
+    {% if shared is None %}
+        {% block comment %}{% endblock %}
+    {% endif %}
+</body>
+</html>

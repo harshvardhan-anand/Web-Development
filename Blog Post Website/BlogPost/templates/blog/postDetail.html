@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'baseDetail.html' %}
+{% load blog_filter %}
+
+{% block title %}Detail View{% endblock %}
+{% comment %} {% block heading %}Detail View{% endblock %} {% endcomment %}
+
+{% block content %}
+    <h2>{{post.title}}</h2>
+    <p>Published on {{post.publish}} by {{post.author}}</p>
+    <p>{{post.body}}</p>
+{% endblock content %}
+
+{% block shareButton %}
+    <a href="{% url "blog:share" post.id %}"><button>Share</button></a>
+{% endblock shareButton %}
+
+{% block shareForm %}
+    <form action="" method="post">
+        {{form.as_p}}
+        {% csrf_token %} 
+        <input type="submit" value="SEND">
+    </form>
+{% endblock shareForm %}
+
+{% block thankyou %}
+    {% comment %} rm_period is a custom filter to remove period form the title {% endcomment %}
+    <br><br>
+    You have shared {{post.title | rm_period}} with {{form.cleaned_data.to}}
+{% endblock thankyou %}
+
+{% block commentButton %}
+    <a href="{% url 'blog:comment' post.id %}"><button>Comment</button></a>
+{% endblock commentButton %}
+
+{% block commentForm %}
+    <form action="{{post.get_absolute_url}}" method="post">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="Add Comment">
+    </form>
+{% endblock commentForm %}
+
+{% block comment %}
+    <br>
+    <h3>Comments</h3>
+    {% for comment in all_comments%}
+        {{comment.name}} has commented {{comment.comment}}
+        <br>
+    {% empty %} 
+    {% comment %} If all_comments is empty then show this line {% endcomment %}
+        <p>Be the first to comment</p>
+    {% endfor %}
+{% endblock comment %}
+
+{% block similarPosts %}
+<br><br>
+    {% if similar_posts %}
+        <h3>You may like</h3>
+        {% for similarPost in similar_posts %}
+            <a href="{{similarPost.get_absolute_url}}">{{similarPost}}</a>
+        {% endfor %}
+    {% endif %}
+{% endblock similarPosts %}

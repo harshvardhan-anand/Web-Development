@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'baseList.html' %}
+{% load blog_template %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block navBar %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <div class='container'>
+            <h1>Super Blog</h1>
+            <form action='{% url 'blog:search' %}' method="get">
+                <input type="text" name="query">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </nav>
+{% endblock navBar %}
+
+{% block content %}
+    {% if tag %}
+        <h1>Filter By Tag - {{tag}}</h1>
+    {% endif %}
+    {% for post in posts %}
+        <h3><a href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
+        <i class='text-secondary'>Publish on {{post.publish}} by {{post.author}}</i>
+        {% with tags=post.tags.all %}
+            {% if tags|length %}
+            <p>Tags:
+                {% for tag in tags %}
+                    <a href="{% url 'blog:tagClick' tag_slug=tag.slug %}">{{tag.name}}</a>
+                    {% if not forloop.last %}, {% endif %} 
+                    {% comment %} if the element is the last element of post.tags.all then dont put comma after that {% endcomment %}
+                {% endfor %}
+            </p>
+            {% endif %}
+        {% endwith %}
+        <p>{{post.body | linebreaks}}</p>
+    {% endfor %}
+    {% include 'blog/pagination.html' with page=posts%}
+{% endblock content %} 
+
+{% block sideBar %}
+    <h3>Latest Post</h3>
+    {% latest_post 6 %}
+{% endblock sideBar %}
+
+{% block feed %}
+    <div>
+        <a href="{% url 'blog:feed' %}">Subscribe to my feed</a>
+    </div>
+{% endblock feed %}

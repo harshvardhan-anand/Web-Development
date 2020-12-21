@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'baseList.html' %}
+
+{% block searchTemplate %}
+    <div>
+        <h1>Posts containing "{{query}}" </h1>
+        <h3>Found {{count}} results</h3>
+        {% for post in title_contains %}
+            <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+            <p>{{post.body | truncatewords:30}}</p>
+        {% endfor %}
+        {% for post in post_contains %}
+            {% if post.title not in title_contains %}
+                <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                <p>{{post.body | truncatewords:30}}</p>
+            {% endif %}
+            {% empty %}
+                <p>No search found!!!</p>
+        {% endfor %}
+    </div>
+{% endblock searchTemplate %}

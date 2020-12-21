@@ -1,0 +1,25 @@
+# In the console
+# python manage.py shell
+# copy-paste the following code
+
+from blog.models import Post
+import numpy as np
+from django.contrib.auth.models import User
+from faker import Faker
+
+def fake():
+    Faker.seed(5)
+    faker = Faker()
+
+    for _ in range(200):
+        username=faker.unique.first_name()
+        password=faker.simple_profile()['mail']
+        user = User.objects.create_user(username=username, password=password)
+        title = faker.sentence()
+        slug = title.replace(' ', '-').replace('.', '')
+        post = Post(title=title, author=user, body=faker.text(), status=np.random.choice(['draft', 'published']), slug=slug)
+        with open('cred.txt', 'a') as file:
+            file.write(f'{username}    ----    {password}\n')
+        user.save()
+        post.save()
+fake()
