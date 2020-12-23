@@ -9,32 +9,34 @@
 {% endblock navBar %}
 
 {% block content %}
-<div class='mt-3'>
+<div class='mt-4'>
     {% if tag %}
         <h1>Filter By Tag - {{tag}}</h1>
     {% endif %}
     {% for post in posts %}
-        <h3><a href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
-        <i class='text-secondary'>Published on {{post.publish}} by {{post.author}}</i>
-        {% with tags=post.tags.all %}
+        <div class="mb-5">
+            <h3 class='fs-5'><a href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
+            <i class='text-secondary'>Published on {{post.publish}} by {{post.author}}</i>
+            {% with tags=post.tags.all %}
             {% if tags|length %}
             <p>Tags:
                 {% for tag in tags %}
-                    <a href="{% url 'blog:tagClick' tag_slug=tag.slug %}">{{tag.name}}</a>
-                    {% if not forloop.last %}, {% endif %} 
-                    {% comment %} if the element is the last element of post.tags.all then dont put comma after that {% endcomment %}
+                <a href="{% url 'blog:tagClick' tag_slug=tag.slug %}">{{tag.name}}</a>
+                {% if not forloop.last %}, {% endif %} 
+                {% comment %} if the element is the last element of post.tags.all then dont put comma after that {% endcomment %}
                 {% endfor %}
             </p>
             {% endif %}
-        {% endwith %}
-        <p>{{post.body | truncatewords:30 | linebreaks}}</p>
+            {% endwith %}
+            <p>{{post.body | truncatewords:30 | linebreaks}}</p>
+        </div>
     {% endfor %}
     {% include 'blog/pagination.html' with page=posts%}
 </div>
 {% endblock content %} 
 
 {% block sideBar %}
-<div class='mt-3'>
+<div class='mt-4'>
     <h3>Latest Post</h3>
     {% latest_post 6 %}
 </div>
