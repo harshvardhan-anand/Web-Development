@@ -6,6 +6,7 @@ from .forms import EmailForm, CommentForm
 from django.http import HttpResponseRedirect
 from taggit.models import Tag
 from django.db.models import Count
+from django.contrib import messages
 
 # Create your views here.
 def post_list(request, tag_slug=None):
@@ -29,22 +30,15 @@ def post_detail(request, year, month, day, slug):
     # filtering on the r̥basis of day, month, year
     post = get_object_or_404(Post, slug=slug, publish__day=day, publish__month=month, publish__year=year)
     all_comments = post.comments.all()
-    show_comment_form = False
-    try:
-        if request.session['comment']:
-            request.session['comment'] = False
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
             form = CommentForm()
-            show_comment_form = True
-        elif request.method == 'POST':
-            form = CommentForm(request.POST)
-            if form.is_valid():
-                new_comment = form.save(commit=False)
-                new_comment.post = post
-                new_comment.save()
-        else:
-            form = None
-    except:
-        form = None
+    else:
+        form = CommentForm()
     
     # RECOMMENDING SIMILAR POSTS
     # https://stackoverflow.com/questions/35114737/how-do-you-add-similar-posts-to-a-detail-page-using-django
@@ -55,7 +49,6 @@ def post_detail(request, year, month, day, slug):
             'post':post, 
             'form':form, 
             'all_comments':all_comments, 
-            'showCommentForm':show_comment_form,
             'similar_posts':similar_posts
         }
     ) #here we have "post" as context variable
@@ -70,21 +63,17 @@ def share(request, post_id):
             shared = True
             cd = form.cleaned_data
             print(cd)
+            messages.success(request, f"You have shared {(post.title).replace('.', '')} with {cd['to']}.")
+            # reverse return a string so we need to use HttpRedirect, 
+            # else you will get -->'str' object has no attribute 'get'<-- error.            
+            return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
+                                                'year' : post.publish.year,
+                                                'month' : post.publish.month,
+                                                'day' : post.publish.day,
+                                                'slug' : post.slug,}))
     else:
         form = EmailForm()
     return render(request, 'blog/postDetail.html', {'post':post, 'shared':shared, 'form':form})
-
-def comment(request, post_id):
-    post = get_object_or_404(Post, id=post_id, status='published')
-    request.session['comment'] = True
-    # reverse return a string so we need to use HttpRedirect, 
-    # else you will get -->'str' object has no attribute 'get'<-- error.
-    return HttpResponseRedirect(reverse('blog:post_detail', kwargs={
-        'year' : post.publish.year,
-        'month' : post.publish.month,
-        'day' : post.publish.day,
-        'slug' : post.slug
-    }))
 
 def search(request):
     contains = request.GET.get('query')

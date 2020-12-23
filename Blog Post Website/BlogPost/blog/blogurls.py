@@ -10,7 +10,6 @@ urlpatterns = [
     path('published/<int:year>/<int:month>/<int:day>/<slug:slug>',views.post_detail, name='post_detail'),
     # django will use the name to call the view and dynamically change the URI
     path('published/share/<int:post_id>', views.share, name='share'),
-    path('comment/<int:post_id>', views.comment, name='comment'),
     path('searchBy/tag/<slug:tag_slug>', views.post_list, name='tagClick'),
     path('feed/', LatestPosts(), name='feed'),
     path('search/', views.search, name='search')

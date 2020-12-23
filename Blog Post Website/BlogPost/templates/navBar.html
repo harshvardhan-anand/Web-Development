@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <div class='container-fluid'>
+        <h1 class='navbar-brand'><a href="{% url 'blog:post_list' %}"  class='link-dark text-decoration-none'>Super Blog</a></h1>
+        <form action='{% url 'blog:search' %}' method="get" class='d-flex'>
+            <input type="text" name="query" class='form-control me-2'>
+            <input type="submit" value="Search" class='btn btn-outline-success'>
+        </form>
+    </div>
+</nav>
+</html>

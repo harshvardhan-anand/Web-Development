@@ -1,49 +1,85 @@
 <!DOCTYPE html>
 {% extends 'baseDetail.html' %}
-{% load blog_filter %}
+{% load blog_template %}
 
 {% block title %}Detail View{% endblock %}
-{% comment %} {% block heading %}Detail View{% endblock %} {% endcomment %}
+
+{% block navBar %}
+    {% navbar %}
+{% endblock navBar %}
 
 {% block content %}
-    <h2>{{post.title}}</h2>
-    <p>Published on {{post.publish}} by {{post.author}}</p>
-    <p>{{post.body}}</p>
+    <div class='row'>
+        <div class='col-xl-10'>
+            <h2>{{post.title}}</h2>
+            <p>
+                <span class='text-uppercase'>By {{post.author}} | </span>
+                <span class='fst-italic text-muted'>Published on {{post.publish}}</span>
+            </p>
+            <p>{{post.body}}</p>
+        </div>
+    </div>
 {% endblock content %}
 
 {% block shareButton %}
-    <a href="{% url "blog:share" post.id %}"><button>Share</button></a>
+    <div>
+        <h3>Share :)</h3>
+        <div class="d-grid gap-2 mt-4">
+            <a href="{% url "blog:share" post.id %}" role='button' class='btn btn-outline-primary'>Share By Email</a>
+            <button type="button" class="btn btn-outline-primary" onClick="copy()">Copy to Clipboard</button>
+        </div>
+    </div>
 {% endblock shareButton %}
 
 {% block shareForm %}
     <form action="" method="post">
-        {{form.as_p}}
-        {% csrf_token %} 
-        <input type="submit" value="SEND">
+        {% csrf_token %}    
+        <div class="w-25 ms-2 mb-2">
+            <label class="form-label">{{form.email.label}}</label>
+            {{form.email}}
+        </div>
+        <div class="w-25 ms-2 mb-2">
+            <label class="form-label">{{form.to.label}}</label>
+            {{form.to}}
+        </div>        
+        <div class="w-25 ms-2 mb-2">
+            <label class="form-label">{{form.message.label}}</label>
+            {{form.message}} {% comment %} This will create the textarea {% endcomment %}
+        </div> 
+        <input type="submit" class="btn btn-outline-success mt-2 ms-2" value="SEND">
     </form>
 {% endblock shareForm %}
 
 {% block thankyou %}
-    {% comment %} rm_period is a custom filter to remove period form the title {% endcomment %}
-    <br><br>
-    You have shared {{post.title | rm_period}} with {{form.cleaned_data.to}}
+    {% for message in messages %}
+        {% if message %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {{message}}.
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endblock thankyou %}
 
-{% block commentButton %}
-    <a href="{% url 'blog:comment' post.id %}"><button>Comment</button></a>
-{% endblock commentButton %}
-
 {% block commentForm %}
+{% comment %} https://stackoverflow.com/a/18962676 {% endcomment %}
+<h5 class='mt-4'>Your Comment</h5>
     <form action="{{post.get_absolute_url}}" method="post">
-        {{form.as_p}}
-        {% csrf_token %}
-        <input type="submit" value="Add Comment">
+        {% csrf_token %}    
+        <div class="w-25 ms-2">
+            <label class="form-label">{{form.name.label}}</label>
+            {{form.name}}
+        </div>
+        <div class="w-25 ms-2">
+            <label class="form-label">{{form.comment.label}}</label>
+            {{form.comment}} {% comment %} This will create the textarea {% endcomment %}
+        </div> 
+        <input type="submit" class="btn btn-outline-success mt-3 ms-2" value="Add Comment">
     </form>
 {% endblock commentForm %}
 
 {% block comment %}
-    <br>
-    <h3>Comments</h3>
+    <h5 class='mt-4'>Comments</h5>
     {% for comment in all_comments%}
         {{comment.name}} has commented {{comment.comment}}
         <br>
@@ -54,11 +90,13 @@
 {% endblock comment %}
 
 {% block similarPosts %}
-<br><br>
-    {% if similar_posts %}
-        <h3>You may like</h3>
-        {% for similarPost in similar_posts %}
-            <a href="{{similarPost.get_absolute_url}}">{{similarPost}}</a>
-        {% endfor %}
-    {% endif %}
+    <div class='mt-3'>
+        {% if similar_posts %}
+            <h3>You may like</h3>
+            {% for similarPost in similar_posts %}
+                <a href="{{similarPost.get_absolute_url}}">{{similarPost}}</a>
+                <br>
+            {% endfor %}
+        {% endif %}    
+    </div>
 {% endblock similarPosts %}
