@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +25,23 @@ SECRET_KEY = '(!5p+qvi1+oj@)pg*aq+sls=@s#n&mi^zuuz&0&668cjqy7&9v'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# Sending Emails
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'your_account@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your_password'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Authentication
+LOGIN_URL = 'account:login'
+LOGIN_REDIRECT_URL = 'user:dashboard'
+LOGOUT_URL = 'account:logout'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
 
 # Application definition
 
@@ -38,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +135,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR/'media'

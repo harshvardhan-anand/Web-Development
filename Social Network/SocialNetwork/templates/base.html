@@ -6,6 +6,22 @@
     <title>Base</title>
 </head>
 <body>
+    <nav>
+        <a href="{% url 'account:logout' %}">Logout</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:login' %}">Login</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:password_change' %}">Change Password</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:password_change_done' %}">Password Change Done</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:password_reset' %}">Password Reset</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:password_reset_done' %}">Password Reset Done</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:password_reset_complete' %}">Password Reset Complete</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:register' %}">Register</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:edit' %}">Edit Profile</a>
+    </nav>
+    {% comment %} {% if message in messages %} {% endcomment %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% comment %} {% endif %} {% endcomment %}
     {% block content %}{% endblock %}
     <br>
     {{request.user}}
