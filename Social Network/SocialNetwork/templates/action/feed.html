@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    {% for action in feeds %}
+        {{ action.user }} {{ action.verb }} {{ action.target }} <br>
+        {% comment %} {{feed|linebreaks}} {% endcomment %}
+    {% endfor %}
+{% endblock content %}

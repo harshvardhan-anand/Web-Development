@@ -15,7 +15,12 @@
         <a href="{% url 'account:password_reset_done' %}">Password Reset Done</a>&nbsp;&nbsp;&nbsp;
         <a href="{% url 'account:password_reset_complete' %}">Password Reset Complete</a>&nbsp;&nbsp;&nbsp;
         <a href="{% url 'account:register' %}">Register</a>&nbsp;&nbsp;&nbsp;
-        <a href="{% url 'account:edit' %}">Edit Profile</a>
+        <a href="{% url 'account:edit' %}">Edit Profile</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'account:info' %}">Info</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'user:upload' %}">Upload Post</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'user:dashboard' %}">Dashboard</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'user:user_list' %}">User List</a>&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'action:feed' %}">Feeds</a>&nbsp;&nbsp;&nbsp;
     </nav>
     {% comment %} {% if message in messages %} {% endcomment %}
         {% for message in messages %}
@@ -24,6 +29,6 @@
     {% comment %} {% endif %} {% endcomment %}
     {% block content %}{% endblock %}
     <br>
-    {{request.user}}
+    USER - {{request.user}}
 </body>
 </html>

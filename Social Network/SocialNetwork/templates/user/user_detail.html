@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    firstname = {{ user.first_name }} <br>
+    lastname = {{ user.last_name }} <br>
+    email = {{ user.email }} <br>
+    password = {{ user.password }} <br>
+    username = {{ user.username }} <br>
+    {% for follower in followers %}
+        {{follower}}
+    {% endfor %}
+    <form action="{% url 'user:follow' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="username" value={{ user }}>
+        <input type="submit" value="FOLLOW">
+    </form>
+{% endblock content %}

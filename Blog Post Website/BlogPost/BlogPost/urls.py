@@ -19,6 +19,7 @@ from django.urls import include
 from . import views
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemap import PostSitemap
+import debug_toolbar
 
 sitemaps = {
     'posts':PostSitemap
@@ -28,5 +29,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.blogurls')),
     path('', views.homepage), # This will redirect to page '/blog/'
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('debug/', include(debug_toolbar.urls))
 ]

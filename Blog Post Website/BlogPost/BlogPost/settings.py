@@ -25,6 +25,7 @@ SECRET_KEY = '+@yvnkktz5a2dn=7l&q!#!wer=3zqb_2qd(!-zu1s_bu59b1=='
 DEBUG = True
 
 ALLOWED_HOSTS = []
+INTERNAL_IPS = ['127.0.0.1']
 
 # For sitemap
 SITE_ID = 1
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'blog', 
     'taggit',
     'django.contrib.sites',
-    'django.contrib.sitemaps'
+    'django.contrib.sitemaps',
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'BlogPost.urls'

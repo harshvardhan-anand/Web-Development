@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block content %}
     <h1>Dashboard</h1>
+    {% for oneimage in allimages %}
+        <img src="{% thumbnail oneimage.image 300x0 %}"  alt="">
+        <form action="{% url 'user:like' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value={% if request.user in oneimage.user_like.all %} Unlike {% else %} Like {% endif %}>
+            <input type="hidden" name="id" value='{{oneimage.id}}'>
+            {{oneimage.user_like.count}}
+            {{oneimage.user_like.all}}
+            <button type='submit'>{% if request.user in oneimage.user_like.all %} Unlike {% else %} Like {% endif %}</button>
+        </form>
+        <br>
+    {% endfor %}
+    {% include "pagination.html" with page=allimages%}
 {% endblock content %}

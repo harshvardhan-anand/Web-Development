@@ -5,6 +5,9 @@ from django.http import HttpResponse
 from .models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
+import os
+from django.conf import settings
 
 # Create your views here.
 def user_login(request):
@@ -52,7 +55,7 @@ def edit(request):
         profile_form = ProfileEditForm(data=request.POST, files=request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
-            profile_form.save()
+            profile_form.save()           
             messages.success(request, 'Profile Updated Successfully')
             return redirect('user:dashboard')
         else:
@@ -67,3 +70,14 @@ def edit(request):
             'profile_form':profile_form
         }
     )
+
+def grab_info(request):
+    user = User.objects.get(username=request.user)
+    profile = Profile.objects.get(user=user)
+    old_path = profile.photo.path
+    # new_path = fr"{settings.MEDIA_ROOT}/profilepic/{request.user.username}/{filename}"
+    print(f'{user}\n')
+    print(f'{profile}\n')
+    print(f'{old_path}\n')
+    # print(f'{new_path}\n')
+    return render(request, 'info.html')
