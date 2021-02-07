@@ -1,6 +1,9 @@
 .ipynb_checkpoints
+.vscode
+pyvenv.cfg
+*.code-workspace
 Include
 Lib
 Scripts
-pyvenv.cfg
-.vscode
+tcl
+*.pyc

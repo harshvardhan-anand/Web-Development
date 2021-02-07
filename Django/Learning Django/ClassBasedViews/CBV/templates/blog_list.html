@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for blog in blogs %}
+        <a href="{% url 'myapp:detail' pk=blog.pk %}">{{ blog|linebreaks }}</a>
+    {% endfor %}
+
+    {% include "pagination.html" with page_obj=page_obj %}
+{% endblock content %}
