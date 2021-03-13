@@ -1,4 +1,4 @@
-"""TODO URL Configuration
+"""BlogPost URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from BlogPost import views
+import debug_toolbar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('t/', include('todo_app.urls')),
-    path('', include('api.urls')),
+    path('', views.home, name='home'),
+    path('api/v1/', include('api.urls')),
+    path('auth', include('rest_framework.urls')),    
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
