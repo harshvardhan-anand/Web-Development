@@ -1,0 +1,7 @@
+1. https://github.com/celery/celery/tree/master/examples/django/
+	- Check requirement file for which celery version to install
+	- celery 5.0.5 with python 3.8.3 works
+
+2. https://docs.celeryproject.org/en/stable/django/first-steps-with-django.html
+	- How to use celery with Django
+	- use @shared_task instead of @task

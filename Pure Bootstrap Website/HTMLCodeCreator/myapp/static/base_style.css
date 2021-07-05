@@ -1,0 +1,65 @@
+#sidebar{
+    width:14%;
+}
+
+#nowplayingbar{
+    height:90px;
+    position:fixed;
+    bottom:0;
+    background-color: rgb(33,37,41);
+}
+
+#spotify-logo{
+    display: inline-block;
+}
+
+#loop{
+    position: relative;
+    left: 48%;
+    top: 30%;
+}
+
+#next{
+    position: relative;
+    left: 48%;
+    top: 30%;
+}
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+    background-color: red;
+}
+
+button {
+    background: none!important;
+    border: none;
+    padding: 5!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+#like{
+    position: relative;
+    left: 8%;
+    top: 30%;
+}
+
+#like:hover {
+    color: red;
+}
+
+#artist{
+    position: relative;
+    top:0px;
+}
+
+body{
+    overflow-x: hidden;
+    overflow-y:hidden;
+}
+
+#sidebar{
+    background-color: rgb(0, 0, 0);
+}

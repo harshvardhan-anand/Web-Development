@@ -2,21 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="title icon" href="images/icon.png">
-    <title>Website</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="custom_css/style.css">
+    <title>Bootstrap</title>
 </head>
-
 <body>
-    <nav class='navbar navbar-expand-sm'>
-        <ul class='nav navbar-nav'>
-            <li><a href='#' class='nav-link'>About</a></li>
-            <li><a href='#' class='nav-link'>Project</a></li>
-            <li><a href='#' class='nav-link'>HomePage</a></li>
-            <li><a href='#' class='nav-link'>Register</a></li>
-        </ul>
-    </nav>
-</body>
+    <div class="bg-primary row">
+        <div class="col-2 bg-secondary" id='sidebar'>
+            x
+        </div>
 
+        <div class="col-10 bg-warning" id=''>
+            <!-- -------------------------------------------------------------NAVBAR----------------------------------------------------------- -->
+            <nav class="d-flex justify-content-end container navbar navbar-light bg-light">
+                <button class="btn btn-outline-success me-2" type="button">Main button</button>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>    
+            </nav>
+            <!-- -------------------------------------------------------------NAVBAR----------------------------------------------------------- -->           
+            
+            <!-- ------------------------------------------------------------------MUSIC DIV--------------------------------------------------- -->
+            <div class="container" id="musicbar">
+
+                <div class='row'>
+                    <h1 class="mt-3">Music Category</h1>
+                    <div class='col-3 mt-3'>
+                        <div class="card" style="width: 18rem;">
+                            <img src="AI.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-3 mt-3'>
+                        <div class="card" style="width: 18rem;">
+                            <img src="AI.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-3 mt-3'>
+                        <div class="card" style="width: 18rem;">
+                            <img src="AI.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-3 mt-3'>
+                        <div class="card" style="width: 18rem;">
+                            <img src="AI.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- -----------------------------------------------------------MUSIC DIV--------------------------------------------------- -->
+        </div>
+    </div>
+
+    <div class="bg-success row">
+
+        <!-- --------------------------------------------------------NOW PLAYING MUSIC CARD--------------------------------------------- -->
+        <div class="col-5 bg-success" id='nowplaying'>
+            <div class="row">
+                <div class="col-3" >
+                    <img src="AI.jpg" class="rounded img-thumbnail" alt="..." id='nowplayingimage'>
+                </div>
+                <div class="col-9" id='nowplayingmusicinfo'>
+                    <p id='music_author' class='text-truncate'>
+                        Music Title will go here <br>
+                        <span class="fw-light fst-italic ">Music author will go here</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------NOW PLAYING MUSIC CARD--------------------------------------------- -->
+
+        <!-- ------------------------------------------------------MUSIC CONTROLLER BUTTONS--------------------------------------------- -->
+        <div class="col-7">
+            <div id='controller'>
+                <audio id='music' controls controlsList="nodownload" class=>
+                    <source src="static/audio.m4a" type="audio/ogg">
+                </audio>
+                <button class='float-end mt-3 mx-1'>Repeat</button>
+                <button class='float-end mt-3 mx-1'>Next</button>
+                <button class='float-end mt-3 mx-1'>Like</button>
+            </div>
+        </div>
+        <!-- ------------------------------------------------------MUSIC CONTROLLER BUTTONS--------------------------------------------- -->
+        
+    </div>    
+
+</body>
 </html>

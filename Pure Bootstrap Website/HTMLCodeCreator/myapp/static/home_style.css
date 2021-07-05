@@ -1,0 +1,36 @@
+#musicpanel{
+    /* position: absolute; */
+    margin-top:10px;
+    width:106%;
+    height: 38%;
+    overflow-y:auto;
+    background-color: rgb(33,37,41);
+}
+
+#musicrow{
+    margin-top: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px rgb(23, 0, 230); */
+    background:rgb(33,37,41)
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }
+
+  h1{
+    color:aliceblue;
+  }

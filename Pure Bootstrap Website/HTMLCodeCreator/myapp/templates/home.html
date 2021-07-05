@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'home_style.css' %}">
+{% endblock head %}
+
+{% block music %}
+
+<nav class="navbar dropdown position-absolute top-50 end-0 translate-middle-y mt-3">
+
+    <div class="">
+
+    </div>
+</nav>
+
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-dark mx-3">Upgrade</button>
+            <button type="button" class="btn btn-dark mx-3 fa fa-user"> {{request.user}}</button>
+            <button type="button" class="btn btn-dark mx-3">Logout</button>
+        </div>
+  </div>
+</nav>
+
+<div class="row" id="musicpanel">
+    {#---------------------------------------------------------------------#}
+    <h1>Party Song</h1>
+    <div class="row" id='musicrow'>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <h1>Instrumental</h1>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <h1>Artists</h1>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+        <div class="col-2 p-2">
+            <div class="card" style="width: 13rem;">
+                <img src="{% static 'music.jpg' %}" class="card-img-top img-thumbnail" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>        
+        </div>
+                     
+    </div>
+    {#---------------------------------------------------------------------#}
+</div>
+
+{% endblock music %}
+
+
+
