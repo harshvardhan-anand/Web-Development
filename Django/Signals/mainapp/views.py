@@ -18,7 +18,7 @@ def register(request):
         password = request.POST.get('password')
         cf_password = request.POST.get('cf_password')
         if password == cf_password:
-            if not User.objects.filter(email=email).exists():
+            if not (User.objects.filter(email=email).exists() or User.objects.filter(username=username).exists()):
                 User.objects.create_user(username, email, password)
                 return HttpResponse('Thanks for registering')
 
